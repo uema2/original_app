@@ -40,3 +40,19 @@ footer {
   font-weight: bold;
   letter-spacing: 0.15em;
 }
+
+/* user-profile */
+.user-profile {
+  background-color: white;
+  padding: 40px;
+  
+}
+
+.user-avatar img {
+  width:100%;
+  max-width: 100%;
+  height: auto;
+}
+.user-profile .user-introduce {
+  padding: 0 20px;
+}
