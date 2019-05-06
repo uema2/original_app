@@ -1,0 +1,23 @@
+<div class="hobby-top">
+  <div class="hobby-detail">
+    <div class="row">
+      <div class="col-sm-5">
+        
+      </div>
+      <div class="col-sm-7">
+        <h1><%= @hobby.title %></h1>
+        <%= link_to @user.name, user_path(@user) %>
+        <p><%= @hobby.content %></p>
+      </div>
+    </div>
+  </div>
+  <div class="hobby-content">
+    <p><%= @hobby.content %></p>
+  </div>
+  <%= link_to '戻る', root_path, class: 'btn btn-default' %>
+  <% if current_user == @hobby.user %>
+    <%= link_to '編集', edit_hobby_path, class: 'btn btn-default' %>
+    <%= link_to '削除', hobby_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+  <% end %>
+</div>
+    

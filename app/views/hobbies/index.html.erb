@@ -1,0 +1,7 @@
+<h1>index</h1>
+
+<%= link_to '新規作成', new_hobby_path %>
+
+<%= render 'hobbies', hobbies: @hobby %>
+
+<%= paginate @hobby %>

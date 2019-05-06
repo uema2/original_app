@@ -1,0 +1,8 @@
+<h1 class="text-center"><%= @hobby.title %>の編集</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= render 'form' %>
+    </br>
+    <%= link_to '戻る', hobby_path, class: 'btn btn-default' %>
+  </div>
+</div>

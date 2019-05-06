@@ -1,0 +1,20 @@
+<% if hobbies %>
+  <div class="row">
+    <% @hobby.each do |hobby| %>
+      <div class="hobby">
+        <div class="col-xs-12 col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="text-right">
+                
+              </div>
+              <%= hobby.title %>
+              <%= hobby.content %>
+              <%= link_to 'もっと見る', hobby %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

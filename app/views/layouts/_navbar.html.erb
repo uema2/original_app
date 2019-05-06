@@ -14,10 +14,10 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
-              <a href="#">
+              <%= link_to hobbies_path do %>
                 <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
                 hobby
-                </a>
+              <% end %>
             </li>
             <li>
               <a href="#">

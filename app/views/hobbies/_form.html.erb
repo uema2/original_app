@@ -1,0 +1,39 @@
+<%= form_for(@hobby) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="radio-button">
+    <label class="radio-inline radio-first"><%= f.radio_button :kind, 1 %>アウトドア</label>
+    <label class="radio-inline"><%= f.radio_button :kind, 2 %>インドア</label>
+    <label class="radio-inline"><%= f.radio_button :kind, 0 %>その他</label>
+  </div>
+  </br>
+  <label>カテゴリーを選択</label></br>
+  <div class="radio-button">
+    <label class="radio-inline radio-first"><%= f.radio_button :category, 1 %>スポーツ</label>
+    <label class="radio-inline"><%= f.radio_button :category, 2 %>マイナースポーツ</label>
+    <label class="radio-inline"><%= f.radio_button :category, 3 %>キャンプ</label>
+    <label class="radio-inline"><%= f.radio_button :category, 4 %>サイクリング</label>
+    <label class="radio-inline"><%= f.radio_button :category, 5 %>車・バイク</label>
+    <label class="radio-inline"><%= f.radio_button :category, 6 %>釣り</label>
+    <label class="radio-inline"><%= f.radio_button :category, 7 %>映画</label>
+    <label class="radio-inline"><%= f.radio_button :category, 8 %>楽器</label>
+    <label class="radio-inline"><%= f.radio_button :category, 9 %>写真</label>
+    <label class="radio-inline"><%= f.radio_button :category, 10 %>旅行</label>
+    <label class="radio-inline"><%= f.radio_button :category, 11 %>鑑賞・観劇</label>
+    <label class="radio-inline"><%= f.radio_button :category, 12 %>飲食</label>
+    <label class="radio-inline"><%= f.radio_button :category, 13 %>アニメ</label>
+    <label class="radio-inline"><%= f.radio_button :category, 14 %>ゲーム</label>
+    <label class="radio-inline"><%= f.radio_button :category, 15 %>料理</label>
+    <label class="radio-inline"><%= f.radio_button :category, 16 %>手芸</label>
+    <label class="radio-inline"><%= f.radio_button :category, 0 %>その他</label>
+  </div>
+  </br>
+  <div class="form-group">
+    <%= f.label :content, '内容' %>
+    <%= f.text_area :content, class: 'form-control'%>
+  </div>
+  <%= f.submit '作成', class: 'btn btn-primary btn-block' %>
+<% end %>
