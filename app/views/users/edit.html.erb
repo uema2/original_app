@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
+    <h1 class="text-center">プロフィール編集</h1>
+    <%= form_for(@user) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="form-group">
+        <%= f.label :name, 'お名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <label>性別</label>
+        <%= f.select :gender, [['選択しない', '非公開'], ['男', '男'], ['女', '女']] %>
+        <label>年齢</label>
+        <%= f.select :age, [['選択しない', '非公開'], ['10代', '10代'], ['20代', '20代'], ['30代', '30代'], ['40代', '40代'], ['50代', '50代'], ['60代以上', '60代以上']] %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, '自己紹介（500字以内）' %>
+        <%= f.text_area :introduction, class: 'form-control', placeholder: 'プロフィールに自己紹介を追加する' %>
+      </div>
+
+      <div class="text-right">
+        <%= f.submit '更新する', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    </br>
+    <div class="gravatar_edit">
+      <p>アイコン画像はgravatarを使用しています。</p>
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">アイコンを変更する</a>
+    </div>
+  </div>
+</div> 

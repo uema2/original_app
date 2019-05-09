@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190509062358) do
+ActiveRecord::Schema.define(version: 20190509074025) do
 
   create_table "hobbies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20190509062358) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.string "age"
+    t.text "introduction"
   end
 
   add_foreign_key "hobbies", "users"

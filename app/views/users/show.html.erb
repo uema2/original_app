@@ -7,15 +7,22 @@
           <%= gravatar_for(@user, 240) %>
         </div>
         <div class="panel-footer">
-          <a href="#">プロフィールを編集</a>
+          <%= link_to 'プロフィール編集', edit_user_path(current_user) %>
         </div>
       </div>
     </div>
     </div>
-    
     <div class="col-sm-8">
-      <div class="user-introduce">
+      <div class="user-heading">
         <h1><%= @user.name %></h1>
+        <p>gender：<%= @user.gender %>  | age：<%= @user.age %> </p>
+      </div>
+      <div class="user-introduction">
+        <% if @user.introduction? %>
+          <p><%= @user.introduction %></p>
+        <% else %>
+          <%= link_to '+プロフィールを充実させる', edit_user_path(current_user) %>
+        <% end %>
       </div>
     </div>
   </div>
