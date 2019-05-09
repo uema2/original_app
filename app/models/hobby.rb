@@ -5,4 +5,8 @@ class Hobby < ApplicationRecord
   validates :kind, presence: true
   validates :category, presence: true
   validates :content, presence: true, length: {maximum: 500 }
+  
+  mount_uploader :thumbnail, ThumbnailUploader
+  validates :thumbnail, presence: true
+
 end

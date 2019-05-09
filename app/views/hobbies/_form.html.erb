@@ -1,16 +1,20 @@
 <%= form_for(@hobby) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-group">
-    <%= f.label :title, 'タイトル' %>
+    <%= f.label :title, 'タイトル*' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
+  <label>サムネイル画像を追加*</label>
+  <p>3:2にリサイズされます(5MB以下)</p>
+  <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png' %>
+  </br>
   <div class="radio-button">
     <label class="radio-inline radio-first"><%= f.radio_button :kind, 1 %>アウトドア</label>
     <label class="radio-inline"><%= f.radio_button :kind, 2 %>インドア</label>
     <label class="radio-inline"><%= f.radio_button :kind, 0 %>その他</label>
   </div>
   </br>
-  <label>カテゴリーを選択</label></br>
+  <label>カテゴリーを選択*</label></br>
   <div class="radio-button">
     <label class="radio-inline radio-first"><%= f.radio_button :category, 1 %>スポーツ</label>
     <label class="radio-inline"><%= f.radio_button :category, 2 %>マイナースポーツ</label>
@@ -32,8 +36,17 @@
   </div>
   </br>
   <div class="form-group">
-    <%= f.label :content, '内容' %>
+    <%= f.label :content, '内容*' %>
     <%= f.text_area :content, class: 'form-control'%>
   </div>
   <%= f.submit '作成', class: 'btn btn-primary btn-block' %>
 <% end %>
+
+<script type="text/javascript">
+  $('#hobby_thumbnail').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('画像サイズの上限を超えています。');
+    }
+  });
+</script> 

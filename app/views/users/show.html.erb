@@ -20,4 +20,8 @@
     </div>
   </div>
   <%= link_to 'hobbyを追加する', new_hobby_path %>
+  <h3 class="text-center">hobby</h3>
+  </br>
+  <%= render 'hobbies/hobbies', hobbies: @hobby %>
+  <div class="text-center"><%= paginate @hobby %></div>
 </div>

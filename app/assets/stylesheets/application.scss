@@ -67,3 +67,43 @@ footer {
 .radio-first {
   margin-left: 10px;
 }
+/* hobby */
+.hobby .media-image {
+
+}
+.hobby .media-image img {
+  width: 100%;
+  height :auto;
+  -webkit-transition: all .3s ease-out;
+ 	  -moz-transition: all .3s ease-out;
+ 	  -o-transition: all .3s ease-out;
+     transition: all .3s ease-out;
+     &:hover {
+       transform: scale(1.04);
+     }
+}
+
+.hobby .media {
+
+  overflow: hidden;
+
+}
+
+.media .media-image {
+  float: left;
+  padding-right: 10px;
+  width: 60%;
+}
+.media .media-contents {
+  overflow: hidden;
+  margin: 10px;
+}
+.media-heading {
+  font-size: 16px;
+  font-weight: bold;
+  margin:  0 5px;
+}
+.media-text {
+  margin: 10px;
+  
+} 

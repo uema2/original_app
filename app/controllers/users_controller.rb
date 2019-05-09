@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @hobby = @user.hobbies.order('updated_at DESC').page(params[:page]).per(12)
   end
 
   def new
