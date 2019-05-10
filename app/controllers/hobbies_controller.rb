@@ -3,7 +3,10 @@ class HobbiesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @hobby = Hobby.all.order('updated_at DESC').page(params[:page]).per(12)
+    @hobby = Hobby.all.order('updated_at DESC').page(params[:page]).per(12).search(params)
+    if @hobby.empty?
+      flash.now[:danger] = '検索結果が得られませんでした。'
+    end
     
   end
   

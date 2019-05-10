@@ -1,1 +1,15 @@
+<div class="search-form text-center">
+  <div class="form-inline">
+    <%= form_tag users_path, :method => 'get' do %>
+      <%= text_field_tag :search, '', class: 'form-control', placeholder: 'Search' %>
+      <%= select_tag 'search_gender', options_for_select([["性別", ""], ["男", "男"], ["女", "女"]]), class: 'form-control' %>
+      <%= select_tag 'search_age', options_for_select([["年齢", ""], ["10代", "10代"], ["20代", "20代"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代以上", "60代以上"]]), class: 'form-control' %>     
+      <%= submit_tag '検索', :name => nil, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+  
+
+
 <%= render 'users', users: @users %>
+<div class="text-center"><%= paginate @users %></div>

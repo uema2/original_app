@@ -8,5 +8,12 @@ class Hobby < ApplicationRecord
   
   mount_uploader :thumbnail, ThumbnailUploader
   validates :thumbnail, presence: true
+  
+  def self.search(params)
+    results = all.order(created_at: :desc)
+    results = results.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    results = results.where('kind = ?', params[:search_kind]) if params[:search_kind].present?
+    results 
+  end
 
 end

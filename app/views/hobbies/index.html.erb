@@ -1,4 +1,13 @@
-<h1>index</h1>
+<div class="search-form text-center">
+  <div class="form-inline">
+    <%= form_tag hobbies_path, :method => 'get' do %>
+      <%= text_field_tag :search, '', class: 'form-control', placeholder: 'Search' %>
+      <%= select_tag 'search_kind', options_for_select([["未選択", ""], ["アウトドア", 1], ["インドア", 2], ["その他", 3]]), class: 'form-control' %>
+      <%= submit_tag '検索', :name => nil, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+
 
 <%= link_to '新規作成', new_hobby_path %>
 

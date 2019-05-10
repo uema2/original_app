@@ -3,7 +3,10 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   
   def index
-    @users = User.all.page(params[:page])
+    @users = User.all.page(params[:page]).per(30).search(params)
+    if @users.empty?
+      flash.now[:danger] = '検索結果が得られませんでした。'
+    end
   end
   
   def show

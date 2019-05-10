@@ -9,4 +9,12 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 500 }
   
   has_many :hobbies
+  
+  def self.search(params)
+    results = all.order(created_at: :desc)
+    results = results.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    results = results.where('gender = ?', "#{params[:search_gender]}") if params[:search_gender].present?
+    results = results.where('age = ?', "#{params[:search_age]}") if params[:search_age].present?
+    results
+  end
 end
