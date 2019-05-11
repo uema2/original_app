@@ -13,7 +13,9 @@ class Hobby < ApplicationRecord
     results = all.order(created_at: :desc)
     results = results.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
     results = results.where('kind = ?', params[:search_kind]) if params[:search_kind].present?
+    results = results.where('category = ?', params[:search_category]) if params[:search_category].present?
     results 
   end
-
+  
+  
 end
