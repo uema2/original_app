@@ -167,6 +167,38 @@ footer {
     color: #333333;
   }
 }
+/* message */
+section.message_box {
+  padding: 10px;
+  border: 1px solid $gray-light;
+  overflow: scroll;
+  #messages {
+    height: 400px;
+  }
+}
+
+div.message_form {
+  padding-top: 10px;
+  input {
+    width: 80%;
+  }
+}
+
+#message_sender {
+  font-size: 1.1em;
+  color: #A9A9A9;
+}
+
+#message_content {
+  font-size: 1.0em;
+}
+
+.message-info {
+  background-color: #DCDCDC;
+  text-align: center;
+  padding: 30px;
+  margin-top: 10px;
+}
 
 /* hobby-top */
 .hobby-top {

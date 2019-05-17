@@ -10,11 +10,22 @@ class User < ApplicationRecord
   
   has_many :hobbies
   
+  has_many :from_messages, class_name: "Message",
+            foreign_key: "from_id", dependent: :destroy
+  has_many :to_messages, class_name: "Message",
+            foreign_key: "to_id", dependent: :destroy
+  has_many :sent_messages, through: :from_messages, source: :from
+  has_many :received_messages, through: :to_messages, source: :to
+  
   def self.search(params)
     results = all.order(created_at: :desc)
     results = results.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
     results = results.where('gender = ?', "#{params[:search_gender]}") if params[:search_gender].present?
     results = results.where('age = ?', "#{params[:search_age]}") if params[:search_age].present?
     results
+  end
+  
+  def send_message(other_user, room_id, content)
+    from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
   end
 end
