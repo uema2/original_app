@@ -2,17 +2,27 @@
   <div class="hobby-detail">
     <div class="row">
       <div class="col-sm-5">
-        <%= image_tag @hobby.thumbnail.url %>
+        <%= image_tag @hobby.thumbnail.url, class: 'img-responsive' %>
       </div>
       <div class="col-sm-7">
         <h1><%= @hobby.title %></h1>
-        <%= link_to @user.name, user_path(@user) %>
-        <p><%= @hobby.content %></p>
+        <h5>
+          <%= link_to user_path(@user) do %>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <%= @user.name %>
+          <% end %>
+        </h5>
+        <div class="hobby-content">
+          <p><%= @hobby.content %></p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="hobby-content">
-    <p><%= @hobby.content %></p>
+  <div class="message-link text-center">
+    <%= link_to user_path(@user) do %>
+      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+      メッセージを送る
+    <% end %>
   </div>
   <%= link_to '戻る', root_path, class: 'btn btn-default' %>
   <% if current_user == @hobby.user %>

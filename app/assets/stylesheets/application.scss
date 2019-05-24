@@ -138,6 +138,14 @@ footer {
   padding: 50px 0;
 }
 
+/* ユーザ一覧　*/
+.user .media {
+  margin-bottom: 5px;
+}
+.user .media-body p {
+  color: gray;
+}
+
 /* user-profile */
 .user-profile {
   background-color: white;
@@ -173,7 +181,7 @@ section.message_box {
   border: 1px solid $gray-light;
   overflow: scroll;
   #messages {
-    height: 400px;
+    height: 300px;
   }
 }
 
@@ -185,7 +193,7 @@ div.message_form {
 }
 
 #message_sender {
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: #A9A9A9;
 }
 
@@ -196,11 +204,12 @@ div.message_form {
 .message-info {
   background-color: #DCDCDC;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
   margin-top: 10px;
 }
 
 /* hobby-top */
+
 .hobby-top {
   background-color: white;
   padding: 40px;
@@ -209,9 +218,7 @@ div.message_form {
   margin-left: 10px;
 }
 /* hobby */
-.hobby .media-image {
 
-}
 .hobby .media-image img {
   width: 100%;
   height :auto;
@@ -238,16 +245,54 @@ div.message_form {
 .media .media-contents {
   overflow: hidden;
   margin: 10px;
+  width: 40%;
 }
 .media-heading {
   font-size: 16px;
   font-weight: bold;
   margin:  0 5px;
 }
+
 .media-text {
-  margin: 10px;
-  
+  margin: 10px 5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  color: #888888;
 } 
+@media screen and (max-width:990px) {
+  .media-text {
+    margin: 5px;
+    -webkit-line-clamp: 2;
+  }
+}
+@media screen and (min-width:991px) and (max-width:1119px) {
+  .media-text {
+    margin: 5px;
+    -webkit-line-clamp: 3;
+  }
+}
+/* hobby詳細　*/
+
+.hobby-detail {
+  h1 {
+    margin: 10px 0;
+  }
+  h5 {
+    text-align: right;
+  }
+}
+.hobby-content {
+  p {
+    white-space: pre-wrap;
+    overflow-wrap : break-word;
+    color: #333333;
+  }  
+}
+.message-link {
+  font-size: 1.5em;
+}
 /* 検索フォーム　*/
 .search-form {
   padding: 40px 30px;

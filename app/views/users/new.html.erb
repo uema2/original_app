@@ -23,9 +23,11 @@
             <%= f.password_field :passeord_confirmation, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <label>性別（任意）</label>
+            <%= f.label :gender, '性別（任意）' %>
             <%= f.select :gender, [['選択しない', '非公開'], ['男', '男'], ['女', '女']] %>
-            <label>年齢（任意）</label>
+          </div>
+          <div class="form-group">
+            <%= f.label :age, '年齢（任意）' %>
             <%= f.select :age, [['選択しない', '非公開'], ['10代', '10代'], ['20代', '20代'], ['30代', '30代'], ['40代', '40代'], ['50代', '50代'], ['60代以上', '60代以上']] %>
           </div>
           <div class="text-right">
