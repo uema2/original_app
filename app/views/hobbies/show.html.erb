@@ -6,6 +6,9 @@
       </div>
       <div class="col-sm-7">
         <h1><%= @hobby.title %></h1>
+        <% if logged_in? %>
+          <%= render 'clips/like_button', hobby: @hobby %>
+        <% end %>
         <h5>
           <%= link_to user_path(@user) do %>
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>

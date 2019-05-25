@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190512070741) do
+ActiveRecord::Schema.define(version: 20190524135432) do
+
+  create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "hobby_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hobby_id"], name: "index_clips_on_hobby_id"
+    t.index ["user_id", "hobby_id"], name: "index_clips_on_user_id_and_hobby_id", unique: true
+    t.index ["user_id"], name: "index_clips_on_user_id"
+  end
 
   create_table "hobbies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -45,5 +55,7 @@ ActiveRecord::Schema.define(version: 20190512070741) do
     t.text "introduction"
   end
 
+  add_foreign_key "clips", "hobbies"
+  add_foreign_key "clips", "users"
   add_foreign_key "hobbies", "users"
 end

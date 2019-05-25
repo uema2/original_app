@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 500 }
   
   has_many :hobbies
+  has_many :clips
+  has_many :clip_hobbies, through: :clips, source: :hobby
   
   has_many :from_messages, class_name: "Message",
             foreign_key: "from_id", dependent: :destroy
@@ -27,5 +29,19 @@ class User < ApplicationRecord
   
   def send_message(other_user, room_id, content)
     from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
+  end
+  
+  def like(hobby)
+    clips.find_or_create_by(hobby_id: hobby.id)
+  end
+ 
+  
+  def unlike(hobby)
+    clip = clips.find_by(hobby_id: hobby.id)
+    clip.destroy if clip
+  end
+  
+  def clipped?(hobby)
+    self.clip_hobbies.include?(hobby)
   end
 end

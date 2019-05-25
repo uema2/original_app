@@ -1,0 +1,17 @@
+<% if current_user.clipped?(hobby) %>
+  <%= form_for(current_user.clips.find_by(hobby_id: hobby.id), html: { method: :delete}) do |f| %>
+    <%= button_tag type: 'submit', class: 'btn btn-default btn-sm active' do %>
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+      クリップ済
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.clips.build) do |f| %>
+    <%= hidden_field_tag :hobby_id, hobby.id %>
+    <%= button_tag type: 'submit', class: 'btn btn-default btn-sm' do %>
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+      クリップ
+    <% end %>
+    
+  <% end %>
+<% end %> 

@@ -17,7 +17,11 @@
     <div class="col-sm-8">
       <div class="user-heading">
         <h1><%= @user.name %></h1>
-        <p>gender：<%= @user.gender %>  | age：<%= @user.age %> </p>
+        <p>gender：<%= @user.gender %>  | age：<%= @user.age %> |
+          <%= link_to clips_user_path(@user) do %>
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+          <% end %>
+        </p>
       </div>
       <div class="user-introduction">
         <p><%= @user.introduction if @user.introduction? %></p>

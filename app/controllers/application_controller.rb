@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def count(user)
+    @count_clip_hobbies = user.clip_hobbies.count
+  end
+  
 end

@@ -46,6 +46,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def clips
+    @user = User.find(params[:id])
+    @clip_hobbies = @user.clip_hobbies.page(params[:page]).per(10)
+    count(@user)
+  end
+  
   
   private
   
