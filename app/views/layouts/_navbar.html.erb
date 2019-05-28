@@ -25,6 +25,12 @@
                 クリップを見る
               <% end %>
             </li>
+            <li>
+              <%= link_to new_hobby_path do %>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                hobbyを追加
+              <% end %>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.name %>
